@@ -1,9 +1,21 @@
 <% layout("/layouts/boilerplate") %>
 
-
 <div class="row">
-
-    <div class="alert alert-danger mt-3 col-7 offset-3"  role="alert">
-      <p class="alert-message"> <%= message %></p>
-      </div>
+    <div class="col-md-6 col-10 mx-auto mt-3">
+        <div class="alert alert-danger alert-dismissible fade show shadow-sm rounded" role="alert">
+            <p class="alert-message m-0"><%= message %></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
 </div>
+
+<script>
+    // Auto-hide alert after 5 seconds (Optional)
+    setTimeout(() => {
+        let alertBox = document.querySelector(".alert");
+        if (alertBox) {
+            alertBox.classList.remove("show");
+            setTimeout(() => alertBox.remove(), 300);
+        }
+    }, 5000);
+</script>

@@ -1,24 +1,53 @@
 <% layout("/layouts/boilerplate") %> 
 
-<div class="row mt-3">
-    <h1 class="col-6 offset-3">SignUp on wonderlust</h1>
-    <div class="col-6 offset-3">
-        <form action="/signup" method="post" class="needs-validation" novalidate>
+<div class="row mt-5">
+    <h1 class="text-center mb-4">Sign Up on Wonderlust</h1>
+    <div class="col-md-6 col-10 mx-auto">
+        <form action="/signup" method="post" class="needs-validation p-4 border rounded bg-light shadow-sm" novalidate>
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input name="username" id="username" type="text" class="form-control" required>
-                <div class="valid-feedback">Looks good!</div>
-              </div>
-              <div class="mb-3">
+                <input name="username" id="username" type="text" class="form-control" required autofocus>
+                <div class="invalid-feedback">Please enter a username.</div>
+            </div>
+            <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input name="email" id="email" type="email" class="form-control" required>
-              </div>
-              <div class="mb-3">
+                <div class="invalid-feedback">Please enter a valid email.</div>
+            </div>
+            <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input name="password" id="password" type="password" class="form-control" required>
-              </div>
-              <button class="btn btn-dark">SignUp</button>
+                <input name="password" id="password" type="password" class="form-control" required minlength="6">
+                <div class="invalid-feedback">Password must be at least 6 characters.</div>
+            </div>
+            <div class="mb-3">
+                <label for="confirm-password" class="form-label">Confirm Password</label>
+                <input name="confirm-password" id="confirm-password" type="password" class="form-control" required>
+                <div class="invalid-feedback">Passwords do not match.</div>
+            </div>
+            <button class="btn btn-dark w-100">Sign Up</button>
         </form>
-        
     </div>
 </div>
+
+<script>
+    (function() {
+        'use strict';
+        let form = document.querySelector('.needs-validation');
+        let password = document.getElementById('password');
+        let confirmPassword = document.getElementById('confirm-password');
+
+        form.addEventListener('submit', function(event) {
+            if (!form.checkValidity() || password.value !== confirmPassword.value) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                if (password.value !== confirmPassword.value) {
+                    confirmPassword.classList.add('is-invalid');
+                } else {
+                    confirmPassword.classList.remove('is-invalid');
+                }
+            }
+            form.classList.add('was-validated');
+        }, false);
+    })();
+</script>

@@ -1,16 +1,61 @@
-<footer>
+<style>
+    footer {
+      background-color: #f8f9fa; /* Light background */
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .f-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .f-info-socials i {
+      font-size: 1.5rem;
+      margin: 0 0.75rem;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+    .f-info-socials i:hover {
+      color: #fe424d;
+    }
+    .f-info-brand {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .f-info-links a {
+      text-decoration: none;
+      margin: 0 0.75rem;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .f-info-links a:hover {
+      color: #fe424d;
+    }
+    @media (min-width: 768px) {
+      .f-info {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+        margin: auto;
+      }
+    }
+  </style>
+  
+  <footer>
     <div class="f-info">
-        <div class="f-info-socials">
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-linkedin"></i>
-        </div>
-        <div class="f-info-brand">&copy; Wonderlust Private Limited</div>
-        <div class="f-info-links">
-            <a href="/privacy">Privacy</a>
-            <a href="/trems">Terms</a>
-
-        </div>
+      <div class="f-info-socials">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-linkedin"></i>
+      </div>
+      <div class="f-info-brand">&copy; Wonderlust Private Limited</div>
+      <div class="f-info-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
     </div>
-</footer>
+  </footer>
+  

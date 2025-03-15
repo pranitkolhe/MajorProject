@@ -1,20 +1,39 @@
 <% layout("/layouts/boilerplate") %>
 
-
-<div class="row mt-3">
-    <h1 class="col-6 offset-3">Login on wonderlust</h1>
-    <div class="col-6 offset-3">
-        <form action="/login" method="post" class="needs-validation" novalidate>
+<div class="row mt-5">
+    <h1 class="text-center mb-4">Login to Wonderlust</h1>
+    <div class="col-md-6 col-10 mx-auto">
+        <form action="/login" method="post" class="needs-validation p-4 border rounded bg-light shadow-sm" novalidate>
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input name="username" id="username" type="text" class="form-control" required>
-              </div>
-              <div class="mb-3">
+                <input name="username" id="username" type="text" class="form-control" required autofocus 
+                       aria-describedby="usernameHelp">
+                <div class="invalid-feedback">Please enter your username.</div>
+            </div>
+            <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input name="password" id="password" type="password" class="form-control" required>
-              </div>
-              <button class="btn btn-dark">Login</button>
+                <div class="invalid-feedback">Please enter your password.</div>
+            </div>
+            <button class="btn btn-dark w-100">Login</button>
         </form>
-        
     </div>
 </div>
+
+<script>
+    // Enable Bootstrap form validation
+    (function() {
+        'use strict';
+        let forms = document.querySelectorAll('.needs-validation');
+
+        Array.prototype.slice.call(forms).forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
