@@ -1,4 +1,23 @@
 <style>
+  /* Navbar Styling */
+  .navbar {
+    background-color: #ffffff; /* White background */
+    border-bottom: 2px solid #e0e0e0; /* Light border */
+  }
+
+  .navbar-brand i {
+    font-size: 1.5rem;
+    color: #fe424d; /* Brand color */
+  }
+
+  /* Search Bar */
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+
   .search-button {
     background-color: #fe424d;
     color: white;
@@ -6,26 +25,36 @@
     padding: 0.5rem 1rem;
     border: none;
   }
+
   .search-button:hover {
     background-color: #d93b45;
   }
+
   .search-button i {
     margin-right: 0.5rem;
   }
-  .search-inp {
-    border-radius: 25px;
-    padding: 0.5rem 1rem 0.5rem 2.5rem;
-    width: 100%;
+
+  /* Navbar Links */
+  .nav-link {
+    padding: 0.5rem 1rem;
+    color: #333;
+    font-weight: 500;
   }
+
+  .nav-link:hover {
+    color: #fe424d;
+  }
+
+  /* Navbar Toggler */
   .navbar-toggler {
     border: none;
   }
+
   .navbar-toggler:focus {
     box-shadow: none;
   }
-  .nav-link {
-    padding: 0.5rem 1rem;
-  }
+
+  /* Mobile View Adjustments */
   @media (max-width: 768px) {
     .search-inp {
       width: 100%;
@@ -38,11 +67,12 @@
   }
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+<nav class="navbar navbar-expand-md sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/listings">
-      <i class="fa-sharp fa-regular fa-compass"></i>
+      <i class="fa-regular fa-compass"></i>
     </a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -54,7 +84,7 @@
         </li>
       </ul>
 
-      <% if(currUser){ %>
+      <% if(currUser) { %>
       <form class="d-flex w-100 justify-content-center">
         <input class="form-control search-inp me-2" type="search" placeholder="Search Destination" aria-label="Search">
         <button class="btn search-button" type="submit">
@@ -63,7 +93,7 @@
       </form>
       <% } %>
 
-      <ul class="navbar-nav ms-auto" style="background-color: red;">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a class="nav-link" href="/listings/new">Add New Listing</a>
         </li>
