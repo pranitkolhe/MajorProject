@@ -98,6 +98,18 @@ async function main() {
         next();
     });
 
+    app.get("/", (req, res) => {
+        res.redirect("/listings");
+    });
+
+    app.get("/listing", (req, res) => {
+        res.redirect("/listings");
+    });
+
+    app.get("/listing/:id", (req, res) => {
+        res.redirect(`/listings/${req.params.id}`);
+    });
+
     app.use("/listings", listingRouter);
     app.use("/listings/:id/reviews", reviewRouter);
     app.use("/", userRouter);
