@@ -1,27 +1,27 @@
 <% layout("/layouts/boilerplate") %>
 
-<div class="row mt-5">
-    <h1 class="text-center mb-4">Login to Wonderlust</h1>
-    <div class="col-md-6 col-10 mx-auto">
-        <form action="/login" method="post" class="needs-validation p-4 border rounded bg-light shadow-sm" novalidate>
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input name="username" id="username" type="text" class="form-control" required autofocus 
-                       aria-describedby="usernameHelp">
-                <div class="invalid-feedback">Please enter your username.</div>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input name="password" id="password" type="password" class="form-control" required>
-                <div class="invalid-feedback">Please enter your password.</div>
-            </div>
-            <button class="btn btn-dark w-100">Login</button>
-        </form>
+<div class="row mt-4 mt-md-5 mb-5">
+    <div class="col-11 col-sm-10 col-md-6 mx-auto">
+        <div class="auth-card p-4 p-md-5">
+            <h1 class="text-center mb-4">Login to Wonderlust</h1>
+            <form action="/login" method="post" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input name="username" id="username" type="text" class="form-control" required autofocus>
+                    <div class="invalid-feedback">Please enter your username.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input name="password" id="password" type="password" class="form-control" required>
+                    <div class="invalid-feedback">Please enter your password.</div>
+                </div>
+                <button class="btn btn-dark w-100">Login</button>
+            </form>
+        </div>
     </div>
 </div>
 
 <script>
-    // Enable Bootstrap form validation
     (function() {
         'use strict';
         let forms = document.querySelectorAll('.needs-validation');

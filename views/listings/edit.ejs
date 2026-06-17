@@ -1,13 +1,11 @@
 <% layout("/layouts/boilerplate") %>
 
-<div class="container mt-3">
-  <div class="row justify-content-center">
-    <div class="col-lg-8 col-md-10 col-sm-12">
-      <h2 class="text-center">Edit Your Listing</h2>
+<div class="row mt-3 mb-5">
+  <div class="col-12 col-lg-8 mx-auto">
+    <div class="form-panel p-4 p-md-5">
+      <h2 class="text-center mb-4">Edit Your Listing</h2>
 
       <form method="POST" action="/listings/<%= listing._id %>?__method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
-        
-        <!-- Title -->
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required>
@@ -15,30 +13,26 @@
           <div class="invalid-feedback">Please enter a title.</div>
         </div>
 
-        <!-- Description -->
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
-          <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+          <textarea name="listing[description]" class="form-control" rows="4" required><%= listing.description %></textarea>
           <div class="valid-feedback">Looks good!</div>
           <div class="invalid-feedback">Please enter a description.</div>
         </div>
 
-        <!-- Original Image -->
         <div class="mb-3">
-          <label class="form-label">Original Listing Image</label>
+          <label class="form-label">Current Image</label>
           <div class="text-center">
             <img src="<%= originalImage %>" class="img-fluid rounded shadow-sm" style="max-width: 100%; height: auto;" />
           </div>
         </div>
 
-        <!-- Upload New Image -->
         <div class="mb-3">
           <label for="image" class="form-label">Upload New Image</label>
           <input name="listing[image]" class="form-control" type="file">
         </div>
 
         <div class="row">
-          <!-- Price -->
           <div class="col-md-4 mb-3">
             <label for="price" class="form-label">Price</label>
             <input name="listing[price]" value="<%= listing.price %>" class="form-control" type="number" required>
@@ -46,7 +40,6 @@
             <div class="invalid-feedback">Please enter a valid price.</div>
           </div>
 
-          <!-- Country -->
           <div class="col-md-8 mb-3">
             <label for="country" class="form-label">Country</label>
             <input name="listing[country]" value="<%= listing.country %>" class="form-control" type="text" required>
@@ -55,7 +48,6 @@
           </div>
         </div>
 
-        <!-- Location -->
         <div class="mb-3">
           <label for="location" class="form-label">Location</label>
           <input name="listing[location]" value="<%= listing.location %>" class="form-control" type="text" required>
@@ -63,10 +55,24 @@
           <div class="invalid-feedback">Please enter a valid location.</div>
         </div>
 
-        <!-- Submit Button -->
-        <button class="btn btn-dark edit-btn w-100 mt-3">Edit</button>
-
+        <button class="btn btn-dark edit-btn w-100 mt-3">Save Changes</button>
       </form>
     </div>
   </div>
 </div>
+
+<script>
+  (function() {
+    'use strict';
+    let forms = document.querySelectorAll('.needs-validation');
+    Array.prototype.slice.call(forms).forEach(function(form) {
+      form.addEventListener('submit', function(event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>

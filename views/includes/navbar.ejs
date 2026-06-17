@@ -1,113 +1,45 @@
-<style>
-  /* Navbar Styling */
-  .navbar {
-    background-color: #ffffff; /* White background */
-    border-bottom: 2px solid #e0e0e0; /* Light border */
-  }
-
-  .navbar-brand i {
-    font-size: 1.5rem;
-    color: #fe424d; /* Brand color */
-  }
-
-  /* Search Bar */
-  .search-inp {
-    border-radius: 25px;
-    padding: 0.5rem 1rem 0.5rem 2.5rem;
-    border: 1px solid #ccc;
-    width: 100%;
-  }
-
-  .search-button {
-    background-color: #fe424d;
-    color: white;
-    border-radius: 25px;
-    padding: 0.5rem 1rem;
-    border: none;
-  }
-
-  .search-button:hover {
-    background-color: #d93b45;
-  }
-
-  .search-button i {
-    margin-right: 0.5rem;
-  }
-
-  /* Navbar Links */
-  .nav-link {
-    padding: 0.5rem 1rem;
-    color: #333;
-    font-weight: 500;
-  }
-
-  .nav-link:hover {
-    color: #fe424d;
-  }
-
-  /* Navbar Toggler */
-  .navbar-toggler {
-    border: none;
-  }
-
-  .navbar-toggler:focus {
-    box-shadow: none;
-  }
-
-  /* Mobile View Adjustments */
-  @media (max-width: 768px) {
-    .search-inp {
-      width: 100%;
-      padding-left: 1rem;
-    }
-    .search-button {
-      width: 100%;
-      margin-top: 0.5rem;
-    }
-  }
-</style>
-
 <nav class="navbar navbar-expand-md sticky-top">
-  <div class="container-fluid">
+  <div class="container-fluid px-3 px-md-4">
     <a class="navbar-brand" href="/listings">
       <i class="fa-regular fa-compass"></i>
+      <span class="d-none d-sm-inline">Wonderlust</span>
     </a>
-    
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
           <a class="nav-link" href="/listings">Explore</a>
         </li>
       </ul>
 
       <% if(currUser) { %>
-      <form class="d-flex w-100 justify-content-center">
-        <input class="form-control search-inp me-2" type="search" placeholder="Search Destination" aria-label="Search">
+      <form class="d-flex nav-search-form mx-auto mx-md-0">
+        <input class="form-control search-inp me-2" type="search" placeholder="Search destination" aria-label="Search destination">
         <button class="btn search-button" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>Search
+          <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
       <% } %>
 
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto align-items-md-center">
         <li class="nav-item">
-          <a class="nav-link" href="/listings/new">Add New Listing</a>
+          <a class="nav-link" href="/listings/new">Add Listing</a>
         </li>
         <% if(!currUser) { %>
         <li class="nav-item">
-          <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+          <a class="nav-link" href="/signup">Sign Up</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/login"><b>Login</b></a>
+          <a class="nav-link" href="/login">Login</a>
         </li>
         <% } %>
         <% if(currUser) { %>
         <li class="nav-item">
-          <a class="nav-link" href="/logout"><b>Log Out</b></a>
+          <a class="nav-link" href="/logout">Log Out</a>
         </li>
         <% } %>
       </ul>
